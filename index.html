@@ -83,7 +83,11 @@
             font-size: 18em;
             text-align: center;
             width: 100%;
-            margin-right: 0.3em;
+            margin-bottom: 0;
+        }
+        .date {
+            font: 600 2.7em Monaco, monospace;
+            text-align: right;
         }
     </style>
     <!-- Сюда будут записаны персональные трансформации -->
@@ -93,8 +97,14 @@
 <body>
     <h1 id="save_the_date_text"></h1>
 
-    <p class="BigText great-vibes-regular">S&V</p>
-
+    <div style="width:100%; display: block;padding: 0; margin: 0;">
+        <div style="margin-right: 6%;">
+            <p class="BigText great-vibes-regular">S&V</p>
+        </div>
+        <div style="margin-right: 10%;">
+            <p class="date great-vibes-regular">02 | 08 | 2026</p>
+        </div>
+    </div>
 
     <script>
         const text = "SAVE THE DATE SAVE THE DATE";
