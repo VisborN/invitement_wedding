@@ -3,7 +3,7 @@
 
 <head>
     <style>
-        /* Центрируем весь контейнер на экране */
+        /* Центрируем всё по вертикали и горизонтали */
         body {
             margin: 0;
             height: 100vh;
@@ -13,29 +13,27 @@
             background: white;
         }
 
-        /* Контейнер для букв – точка в центре */
+        /* Контейнер — невидимая точка в центре */
         h1 {
             position: relative;
             width: 0;
             height: 0;
             margin: 0;
-            /* убираем возможные отступы */
         }
 
-        /* Общие стили для каждой буквы */
+        /* Общие стили для всех букв */
         h1 span {
-            font: 26px Monaco, monospace;
+            font: 600 2.7em Monaco, monospace;
             position: absolute;
-            left: 0;
-            /* начальная позиция – центр контейнера */
-            top: 0;
+            left: 50%;
+            top: 50%;
             transform-origin: center;
-            /* вращаем относительно центра буквы */
+            /* поворот относительно центра буквы */
             white-space: pre;
             /* сохраняем пробелы */
         }
     </style>
-    <!-- Сюда будут записаны индивидуальные трансформации -->
+    <!-- Сюда будут записаны персональные трансформации -->
     <style id="save_the_date_rotations"></style>
 </head>
 
@@ -47,20 +45,27 @@
         let textSpans = "";
         let textCss = "";
 
-        const startRad = 0.0;           // не используется в коде
+        const start = -76;
         const step = 13.0;               // шаг поворота в градусах
-        const radius = 150;               // радиус окружности в пикселях
+        const radius = 6;               // радиус окружности в пикселях
+        const move = -4;
+        const move_y = 4;
 
         for (let i = 0; i < text.length; i++) {
-            // Создаём span для каждого символа (пробел тоже остаётся)
+            const angle = start+step * i;                      // угол для i-го символа
+            const rad = angle * Math.PI / 180;           // в радианах
+            const dx = move + radius * Math.cos(rad);            // смещение по X
+            const dy = move_y + radius * Math.sin(rad);            // смещение по Y
+
+            // Создаём span для каждого символа (пробел тоже важен)
             textSpans += '\n            <span class="char' + i + '">' + text[i] + '</span>';
 
-            // Формируем трансформацию:
-            // rotate(угол) – поворачиваем систему координат,
-            // translate(0, -радиус) – смещаем вверх на радиус,
-            // rotate(-угол) – возвращаем букву в вертикальное положение.
-            // Важен порядок: в CSS трансформации применяются справа налево.
-            textCss += '\n            .char' + i + ' { transform: rotate(' + (step * i) + 'deg) translate(0, -' + radius + 'px) rotate(-' + (step * i) + 'deg); }';
+            // Трансформация:
+            // 1. translate(-50%, -50%) – центрирует точку вращения (центр буквы) в начале координат
+            // 2. translate(dx, dy) – перемещает центр буквы на окружность
+            // 3. rotate(angledeg) – поворачивает букву на нужный угол
+            // Важно: порядок применения в CSS – справа налево, поэтому пишем rotate последним (слева)
+            textCss += '\n            .char' + i + ' { transform: translate(-50%, -50%) translate(' + dx.toFixed(2) + 'em, ' + dy.toFixed(2) + 'em) rotate(' + (angle + 90) + 'deg); }';
         }
 
         document.getElementById('save_the_date_rotations').innerHTML = textCss;
