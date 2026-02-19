@@ -6,6 +6,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=block" rel="stylesheet">
     <style>
+        @media screen and (orientation: landscape) {
+            html {
+                /* Rotate the content container */
+                transform: rotate(-90deg);
+                transform-origin: left top;
+                /* Set content width to viewport height */
+                width: 100vh;
+                /* Set content height to viewport width */
+                height: 100vw;
+                overflow-x: hidden;
+                position: absolute;
+                top: 100%;
+                left: 0;
+            }
+        }
         .great-vibes-regular {
             font-family: "Great Vibes", cursive;
             font-weight: 400;
@@ -18,7 +33,8 @@
             display: flex;
             /*justify-content: center;*/
             /*align-items: center;*/
-            background: white;
+            background-color: #1e1d1d; /* Black background */
+            color: #fff0c6;           /* White text */
         }
 
         /* Контейнер — невидимая точка в центре */
@@ -32,7 +48,12 @@
             /* Добавляем анимацию вращения */
             animation: spin 3s ease-out;
         }
-
+        @media screen and (orientation: landscape) {
+            #save_the_date_text {
+                left: calc(100vh - 70% * 100vw);
+                top: calc(20% * 100vh);
+            }
+        }
         /* Анимация: один полный оборот */
         @keyframes spin {
             0% {
