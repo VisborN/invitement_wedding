@@ -1,42 +1,71 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
-            h1 span {
-                font: 26px Monaco, MonoSpace;
-                height: 200px;
-                position: absolute;
-                width: 20px;
-                left: 0;
-                top: 0;
-                transform-origin: bottom center;
-            }
-            .center {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-        </style>
-        <style id="save_the_date_rotations">
 
-        </style>
-    </head>
-    <body>
-        <div>
-            <h1 id="save_the_date_text" class="center"></h1>
-        </div>
-    </body>
-    <script>
-        const text = "SAVE THE DATE SAVE THE DATE"
-        let textSpans = ""
-        let textCss = ""
-        const startRad = 0.0
-        const step = 14.0
-        for (let i = 0; i < text.length; i++) {
-            textSpans += '\n            <span class="char'+i+'">'+text[i]+'</span>'
-            textCss += '\n            .char'+i+' { transform: rotate('+ step * i+'deg); } '
+<head>
+    <style>
+        /* Центрируем весь контейнер на экране */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
         }
-        document.getElementById('save_the_date_rotations').innerHTML = textCss
-        document.getElementById('save_the_date_text').innerHTML = textSpans
+
+        /* Контейнер для букв – точка в центре */
+        h1 {
+            position: relative;
+            width: 0;
+            height: 0;
+            margin: 0;
+            /* убираем возможные отступы */
+        }
+
+        /* Общие стили для каждой буквы */
+        h1 span {
+            font: 26px Monaco, monospace;
+            position: absolute;
+            left: 0;
+            /* начальная позиция – центр контейнера */
+            top: 0;
+            transform-origin: center;
+            /* вращаем относительно центра буквы */
+            white-space: pre;
+            /* сохраняем пробелы */
+        }
+    </style>
+    <!-- Сюда будут записаны индивидуальные трансформации -->
+    <style id="save_the_date_rotations"></style>
+</head>
+
+<body>
+    <h1 id="save_the_date_text"></h1>
+
+    <script>
+        const text = "SAVE THE DATE SAVE THE DATE";
+        let textSpans = "";
+        let textCss = "";
+
+        const startRad = 0.0;           // не используется в коде
+        const step = 13.0;               // шаг поворота в градусах
+        const radius = 150;               // радиус окружности в пикселях
+
+        for (let i = 0; i < text.length; i++) {
+            // Создаём span для каждого символа (пробел тоже остаётся)
+            textSpans += '\n            <span class="char' + i + '">' + text[i] + '</span>';
+
+            // Формируем трансформацию:
+            // rotate(угол) – поворачиваем систему координат,
+            // translate(0, -радиус) – смещаем вверх на радиус,
+            // rotate(-угол) – возвращаем букву в вертикальное положение.
+            // Важен порядок: в CSS трансформации применяются справа налево.
+            textCss += '\n            .char' + i + ' { transform: rotate(' + (step * i) + 'deg) translate(0, -' + radius + 'px) rotate(-' + (step * i) + 'deg); }';
+        }
+
+        document.getElementById('save_the_date_rotations').innerHTML = textCss;
+        document.getElementById('save_the_date_text').innerHTML = textSpans;
     </script>
+</body>
+
 </html>
