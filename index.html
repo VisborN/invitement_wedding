@@ -2,7 +2,15 @@
 <html>
 
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=block" rel="stylesheet">
     <style>
+        .great-vibes-regular {
+            font-family: "Great Vibes", cursive;
+            font-weight: 400;
+            font-style: italic;
+        }
         /* Центрируем всё по вертикали и горизонтали */
         body {
             margin: 0;
@@ -14,7 +22,7 @@
         }
 
         /* Контейнер — невидимая точка в центре */
-        h1 {
+        #save_the_date_text {
             position: absolute;
             left:20%;
             top: 70%;
@@ -37,7 +45,7 @@
         }
 
         /* Общие стили для всех букв */
-        h1 span {
+        #save_the_date_text span {
             font: 600 2.7em Monaco, monospace;
             position: absolute;
             left: 50%;
@@ -47,6 +55,10 @@
             white-space: pre;
             /* сохраняем пробелы */
         }
+
+        .BigText {
+            font-size: 20em;
+        }
     </style>
     <!-- Сюда будут записаны персональные трансформации -->
     <style id="save_the_date_rotations"></style>
@@ -54,6 +66,7 @@
 
 <body>
     <h1 id="save_the_date_text"></h1>
+    <h1 class="BigText great-vibes-regular">S&V</h1>
 
     <script>
         const text = "SAVE THE DATE SAVE THE DATE";
@@ -80,7 +93,7 @@
             // 2. translate(dx, dy) – перемещает центр буквы на окружность
             // 3. rotate(angledeg) – поворачивает букву на нужный угол
             // Важно: порядок применения в CSS – справа налево, поэтому пишем rotate последним (слева)
-            textCss += '\n            .char' + i + ' { transform: translate(-50%, -50%) translate(' + dx.toFixed(2) + 'em, ' + dy.toFixed(2) + 'em) rotate(' + (angle + 90) + 'deg); }';
+            textCss += '\n     #save_the_date_text       .char' + i + ' { transform: translate(-50%, -50%) translate(' + dx.toFixed(2) + 'em, ' + dy.toFixed(2) + 'em) rotate(' + (angle + 90) + 'deg); }';
         }
 
         document.getElementById('save_the_date_rotations').innerHTML = textCss;
