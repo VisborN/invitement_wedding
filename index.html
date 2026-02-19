@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            h1 span {
+                font: 26px Monaco, MonoSpace;
+                height: 200px;
+                position: absolute;
+                width: 20px;
+                left: 0;
+                top: 0;
+                transform-origin: bottom center;
+            }
+            .center {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+        <style id="save_the_date_rotations">
+
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1 id="save_the_date_text" class="center"></h1>
+        </div>
+    </body>
+    <script>
+        const text = "SAVE THE DATE SAVE THE DATE"
+        let textSpans = ""
+        let textCss = ""
+        const startRad = 0.0
+        const step = 14.0
+        for (let i = 0; i < text.length; i++) {
+            textSpans += '\n            <span class="char'+i+'">'+text[i]+'</span>'
+            textCss += '\n            .char'+i+' { transform: rotate('+ step * i+'deg); } '
+        }
+        document.getElementById('save_the_date_rotations').innerHTML = textCss
+        document.getElementById('save_the_date_text').innerHTML = textSpans
+    </script>
+</html>
