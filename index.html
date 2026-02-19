@@ -81,14 +81,34 @@
         }
         .BigText {
             font-size: 18em;
-            text-align: center;
-            width: 100%;
-            margin-bottom: 0;
+            text-align: right;
+            margin: 0;
+            padding-right: 0.2em;
+
         }
         .date {
-            font: 600 2.7em Monaco, monospace;
+            font: 600 4em Monaco, monospace;
             text-align: right;
+            margin: 0;
         }
+        .invitation {
+            font: 600 4em Monaco, monospace;
+            text-align: right;
+            margin: 0;
+            font-style:normal;
+        }
+        .to-be {
+            font-size: 5em;
+            text-align: right;
+            margin: 0;
+            margin-right: 10%;
+            padding: 0;
+            font-style:normal;
+            position: relative;
+
+            width:100%;
+        }
+
     </style>
     <!-- Сюда будут записаны персональные трансформации -->
     <style id="save_the_date_rotations"></style>
@@ -97,12 +117,18 @@
 <body>
     <h1 id="save_the_date_text"></h1>
 
-    <div style="width:100%; display: block;padding: 0; margin: 0;">
-        <div style="margin-right: 6%;">
-            <p class="BigText great-vibes-regular">S&V</p>
+    <div style="position: relative; width:100%; height: 100%; display: block;padding: 0; margin: 0; margin-right: 4em;">
+        <div style="margin-top: 9em;">
+            <p class="BigText great-vibes-regular" style="block-size: fit-content;">S&V</p>
         </div>
-        <div style="margin-right: 10%;">
-            <p class="date great-vibes-regular">02 | 08 | 2026</p>
+        <div style="margin-top: -0.4em;">
+            <p class="date">02 | 08 | 2026</p>
+        </div>
+        <div style="margin-top: 2em;">
+            <p class="invitation">Приглашаем вас на нашу свадьбу</p>
+        </div>
+        <div style="position: absolute; bottom:0%; right:0%;">
+            <p class="to-be great-vibes-regular">to be continued...</p>
         </div>
     </div>
 
