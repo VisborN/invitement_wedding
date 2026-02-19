@@ -8,17 +8,32 @@
             margin: 0;
             height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            /*justify-content: center;*/
+            /*align-items: center;*/
             background: white;
         }
 
         /* Контейнер — невидимая точка в центре */
         h1 {
-            position: relative;
+            position: absolute;
+            left:20%;
+            top: 70%;
             width: 0;
             height: 0;
             margin: 0;
+            /* Добавляем анимацию вращения */
+            animation: spin 3s ease-out;
+        }
+
+        /* Анимация: один полный оборот */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Общие стили для всех букв */
@@ -48,11 +63,11 @@
         const start = -76;
         const step = 13.0;               // шаг поворота в градусах
         const radius = 6;               // радиус окружности в пикселях
-        const move = -4;
-        const move_y = 4;
+        const move = 0;
+        const move_y = 0;
 
         for (let i = 0; i < text.length; i++) {
-            const angle = start+step * i;                      // угол для i-го символа
+            const angle = start + step * i;                      // угол для i-го символа
             const rad = angle * Math.PI / 180;           // в радианах
             const dx = move + radius * Math.cos(rad);            // смещение по X
             const dy = move_y + radius * Math.sin(rad);            // смещение по Y
