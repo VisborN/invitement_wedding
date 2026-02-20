@@ -6,18 +6,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=block" rel="stylesheet">
     <style>
-        /*@media screen and (orientation: landscape) {
-            html {
-                transform: rotate(-90deg);
-                transform-origin: left top;
-                width: 100vh;
-                height: 100vw;
-                overflow-x: hidden;
-                position: absolute;
-                top: 100%;
-                left: 0;
-            }
-        }*/
         .great-vibes-regular {
             font-family: "Great Vibes", cursive;
             font-weight: 400;
@@ -26,8 +14,6 @@
         /* Центрируем всё по вертикали и горизонтали */
         body {
             margin: 0;
-            height: 100vh;
-            display: flex;
             background-color: #1e1d1d; /* Black background */
             color: #fff0c6;           /* White text */
         }
@@ -43,12 +29,6 @@
             /* Добавляем анимацию вращения */
             animation: spin 3s ease-out;
         }
-        /*@media screen and (orientation: landscape) {
-            #save_the_date_text {
-                left: calc(100vh - 70% * 100vw);
-                top: calc(20% * 100vh);
-            }
-        }*/
         /* Анимация: один полный оборот */
         @keyframes spin {
             0% {
@@ -117,17 +97,21 @@
 <body>
     <h1 id="save_the_date_text"></h1>
 
-    <div style="position: relative; width:100%; height: 100%; display: block;padding: 0; margin: 0; margin-right: 4em;">
-        <div style="margin-top: 9em;">
-            <p class="BigText great-vibes-regular" style="block-size: fit-content;">S&V</p>
+    <div style="height: 100vh-4em;  display: flex;">
+        <div style="position: relative; width:100%; height: 100%; display: block;padding: 0; margin: 0; margin-right: 4em;">
+            <div style="margin-top: 9em;">
+                <p class="BigText great-vibes-regular" style="block-size: fit-content;">S&V</p>
+            </div>
+            <div style="margin-top: -0.4em;">
+                <p class="date">02 | 08 | 2026</p>
+            </div>
+            <div style="margin-top: 2em;">
+                <p class="invitation">Приглашаем вас на нашу свадьбу</p>
+            </div>
         </div>
-        <div style="margin-top: -0.4em;">
-            <p class="date">02 | 08 | 2026</p>
-        </div>
-        <div style="margin-top: 2em;">
-            <p class="invitation">Приглашаем вас на нашу свадьбу</p>
-        </div>
-        <div style="position: absolute; bottom:env(safe-area-inset-bottom, 20px); right:0%;">
+    </div>
+    <div style="height: 4em;">
+        <div style="position: absolute; bottom:env(safe-area-inset-bottom, 20px); right:0%;margin-right: 4em; ">
             <p class="to-be great-vibes-regular">to be continued...</p>
         </div>
     </div>
