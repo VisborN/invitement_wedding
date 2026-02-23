@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=block" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Viaoda+Libre&display=block" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200..900&display=block" rel="stylesheet">
     <style>
         .great-vibes-regular {
             font-family: "Great Vibes", cursive;
@@ -17,6 +18,12 @@
             font-weight: 400;
             font-style: normal;
         }
+        .source-code-pro{
+            font-family: "Source Code Pro", monospace;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+
 
         /* Центрируем всё по вертикали и горизонтали */
         body {
@@ -101,49 +108,60 @@
             width:100%;
         }
         .banner {
-            display:flex;
             position: absolute;
             align-items: center;
+            display:flex;
+            flex-direction: column;
+            justify-content: space-between;
             top:0;
-            width: 100%;
-            height: 100%;
-            background-color: #4c5270;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            background-color: #1e1d1d;
             color: white;
             text-align: center;
-            padding: 60px 0;
-            font-family: 'Lato', sans-serif;
-            div {
+            padding: 0 0;
+            margin: 0 0;
+            /*div {
                 width: 100%;
-            }
+            }*/
             h1 {
-                font-size: 2.8em;
+                font-size: 8em;
                 font-weight: 800;
-                margin-bottom: 10px;
+                color: #ff2f2f;
+                margin-block-start: 2em;
+                margin-block-end: 1.17em;
+            }
+            h2 {
+                font-size: 5em;
+                font-weight: normal;
             }
             p {
-                font-size: 1.1em;
-                letter-spacing: 5px;
-                margin-bottom: 20px;
+                font-size: 3em;
+                font-weight: normal;
+                margin: 0 1em;
+            }
+            button {
+                font-size: 5em;
+                display: inline-block;
+                border: 1px solid white;
+                padding: 0.1em 0.5em;
+                border-radius: 0.1em;
+                cursor: pointer;
+                text-decoration: none;
+                color: white;
+                background-color: rgba(0, 0, 0, 0);
+                margin-block-start: 0.83em;
+                margin-bottom: 15vh;
+                width: 50vw;
+            }
+
+            button:hover {
+                background-color: red;
+                color: #4c5270;
             }
         }
 
-        .cta-button {
-            font-size: 20px;
-            display: inline-block;
-            border: 1px solid white;
-            padding: 10px 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: 300;
-            color: white;
-            background-color: rgba(0, 0, 0, 0);
-        }
-
-        .cta-button:hover {
-            background-color: red;
-            color: #4c5270;
-        }
     </style>
     <!-- Сюда будут записаны персональные трансформации -->
     <style id="save_the_date_rotations"></style>
@@ -163,7 +181,7 @@
                     <p class="date">02 | 08 | 2026</p>
                 </div>
                 <div style="margin-top: 1em;">
-                    <p class="invitation">Приглашаем на нашу свадьбу</p>
+                    <p class="invitation">Приглашаем на нашу свадьбу!</p>
                 </div>
             </div>
         </div>
@@ -174,12 +192,40 @@
         </div>
     </div>
 
-    <div id="banner1" class="banner" >
-        <div>
-            <h1>Welcome to Our Website</h1>
-            <p>Click the button below to get started.</p>
-            <button id="banner1_button" class="cta-button">Get Started</button>
-        </div>
+    <div id="banner3" class="banner source-code-pro" >
+            <h1 >Дисклеймер</h1>
+            <div>
+                <p>У нас будет нестандартная свадьба с минимумом традиций и максимумом геймификации.</p>
+            </div>
+            <div></div>
+            <div></div>
+            <button id="banner3_button" >ПОНЯТНО</button>
+    </div>
+    <div id="banner2" class="banner source-code-pro" >
+            <div>
+                <h1 >Дисклеймер</h1>
+                <p style="color: #ff2f2f;">
+                    для членов семьи Влада и Светы
+                </p>
+            </div>
+            <div>
+                <p>Дата в ваших приглашениях может отличаться от даты в приглашениях ваших родственников.</p>
+                <p>Не пугайтесь!</p>
+                <p>Так и было задумано.</p>
+                <p>Празднование будет разделено на два дня: со старшим и с младшим поколением.</p>
+            </div>
+            <div></div>
+            <div></div>
+            <button id="banner2_button" >ЯСНО</button>
+    </div>
+    <div id="banner1" class="banner source-code-pro" >
+            <h1 >Дисклеймер</h1>
+            <div>
+                <p>Сейчас будет несколько дисклеймеров.</p>
+            </div>
+            <div></div>
+            <div></div>
+            <button id="banner1_button" >OK</button>
     </div>
     <script>
         const text = "SAVE THE DATE SAVE THE DATE";
@@ -213,7 +259,13 @@
         document.getElementById('save_the_date_text').innerHTML = textSpans;
         document.getElementById('banner1_button').onclick = function() {
             document.getElementById('banner1').setAttribute('style', 'display:none')
-            document.getElementById('save_the_date_text').style.animation = 'spin 3s ease-out'
+        }
+        document.getElementById('banner2_button').onclick = function() {
+            document.getElementById('banner2').setAttribute('style', 'display:none')
+        }
+        document.getElementById('banner3_button').onclick = function() {
+            document.getElementById('banner3').setAttribute('style', 'display:none')
+            document.getElementById('save_the_date_text').style.animation = 'spin 2s ease-out'
         }
     </script>
 </body>
