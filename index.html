@@ -201,6 +201,8 @@
             <div></div>
             <button id="banner3_button" >ПОНЯТНО</button>
     </div>
+    <image id="image5" style="position:absolute; right: 0; bottom: 0;max-width: 20em; height: auto;" src="sticker3.webp"></image>
+    <image id="image6" style="position:absolute; left: 0; bottom: 0;max-width: 20em; height: auto;" src="sticker6.webp"></image>
     <div id="banner2" class="banner source-code-pro" >
             <div>
                 <h1 >Дисклеймер</h1>
@@ -218,6 +220,8 @@
             <div></div>
             <button id="banner2_button" >ЯСНО</button>
     </div>
+    <image id="image3" style="position:absolute; left: 0; bottom: 0; max-width: 20em; height: auto;" src="sticker2.webp"></image>
+    <image id="image4" style="position:absolute; right: 0; bottom: 0;max-width: 20em; height: auto;" src="sticker4.webp"></image>
     <div id="banner1" class="banner source-code-pro" >
             <h1 >Дисклеймер</h1>
             <div>
@@ -227,6 +231,8 @@
             <div></div>
             <button id="banner1_button" >OK</button>
     </div>
+    <image id="image2" style="position:absolute; right: 0;bottom: 0;max-width: 20em; height: auto;" src="sticker5.webp"></image>
+    <image id="image1" style="position:absolute; left: 0; bottom: 0;max-width: 20em; height: auto;" src="sticker.webp"></image>
     <script>
         const text = "SAVE THE DATE SAVE THE DATE";
         let textSpans = "";
@@ -259,12 +265,18 @@
         document.getElementById('save_the_date_text').innerHTML = textSpans;
         document.getElementById('banner1_button').onclick = function() {
             document.getElementById('banner1').setAttribute('style', 'display:none')
+            document.getElementById('image1').setAttribute('style', 'display:none')
+            document.getElementById('image2').setAttribute('style', 'display:none')
         }
         document.getElementById('banner2_button').onclick = function() {
             document.getElementById('banner2').setAttribute('style', 'display:none')
+            document.getElementById('image3').setAttribute('style', 'display:none')
+            document.getElementById('image4').setAttribute('style', 'display:none')
         }
         document.getElementById('banner3_button').onclick = function() {
             document.getElementById('banner3').setAttribute('style', 'display:none')
+            document.getElementById('image5').setAttribute('style', 'display:none')
+            document.getElementById('image6').setAttribute('style', 'display:none')
             document.getElementById('save_the_date_text').style.animation = 'spin 2s ease-out'
         }
     </script>
