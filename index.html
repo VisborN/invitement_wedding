@@ -169,19 +169,16 @@
             background: transparent;
             box-sizing: border-box;
             width: 0;
-            height: 74px;
-            position: absolute;
-            left: calc(20vw - 30px);
-            top:  calc(70vh - 37px);
+            height: 4.3em;
             border-color: transparent transparent transparent #fff0c6;
-            transition: 100ms all ease;
+            transition: 500ms all ease;
             cursor: pointer;
             border-style: solid;
-            border-width: 37px 0 37px 60px;
+            border-width: calc(4.3em/2) 0 calc(4.3em/2) calc(4.3em/74*60);
         }
         .play_button.paused {
             border-style: double;
-            border-width: 0px 0 0px 60px;
+            border-width: 0px 0 0px calc(4.3em/74*60);
         }
         .play_button:hover {
             border-color: transparent transparent transparent #f4c953;
@@ -196,7 +193,7 @@
 
 <body>
     <h1 id="save_the_date_text"></h1>
-    <button class="play_button" ></button>
+
     <div style="display: block;">
 
         <div class="viaoda-libre-regular" style="height: 100vh-4em;  display: flex;">
@@ -204,8 +201,9 @@
                 <div style="margin-top: 3.5em;">
                     <p class="BigText great-vibes-regular" style="block-size: fit-content;">S&V</p>
                 </div>
-                <div style="margin-top: -1em;">
-                    <p class="date">02 | 08 | 2026</p>
+                <div style="margin-top: -1em; display: flex;flex-direction: row;justify-content:right; align-items: center;">
+                    <button class="play_button" ></button>
+                    <p class="date">&nbsp;02 | 08 | 2026</p>
                 </div>
                 <div style="margin-top: 1em;">
                     <p class="invitation">Приглашаем на нашу свадьбу!</p>
