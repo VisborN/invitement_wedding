@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <title>s&v.wedding</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=block" rel="stylesheet">
@@ -162,6 +163,27 @@
                 color: #4c5270;
             }
         }
+        .play_button {
+            border: 0;
+            background: transparent;
+            box-sizing: border-box;
+            width: 0;
+            height: 74px;
+            border-color: transparent transparent transparent #fff0c6;
+            transition: 100ms all ease;
+            cursor: pointer;
+            border-style: solid;
+            border-width: 37px 0 37px 60px;
+        }
+        .play_button.paused {
+            border-style: double;
+            border-width: 0px 0 0px 60px;
+        }
+        .play_button:hover {
+            border-color: transparent transparent transparent #f4c953;
+        }
+
+
 
     </style>
     <!-- Сюда будут записаны персональные трансформации -->
@@ -187,11 +209,13 @@
             </div>
         </div>
         <div style="height: 4em;">
-            <div style="position: absolute; bottom:env(safe-area-inset-bottom, 20px); right:0%;margin-right: 4em; ">
-                <p class="to-be great-vibes-regular">to be continued...</p>
+            <div style="position: absolute; bottom:env(safe-area-inset-bottom, 20px); right:0%;margin-right: 4em; display: flex;flex-direction: row;justify-content:right;">
+                <button id="playPauseButton" class="play_button" ></button>
+                <p class="to-be great-vibes-regular" style="white-space: nowrap;">to be continued...</p>
             </div>
         </div>
     </div>
+    <audio id="myAudio" src="to_be_continued.mp3"></audio>
 
     <div id="banner3" class="banner source-code-pro" >
             <h1 >Дисклеймер</h1>
@@ -262,6 +286,21 @@
             textCss += '\n     #save_the_date_text       .char' + i + ' { transform: translate(-50%, -50%) translate(' + dx.toFixed(2) + 'em, ' + dy.toFixed(2) + 'em) rotate(' + (angle + 90) + 'deg); }';
         }
 
+        const audio = document.getElementById('myAudio');
+        const playButton = document.getElementById('playPauseButton');
+        audio.addEventListener('play', function() {
+            playButton.classList.add('paused')
+        });
+        audio.addEventListener('pause', function() {
+            playButton.classList.remove('paused')
+        });
+        playButton.onclick = function() {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
         document.getElementById('save_the_date_rotations').innerHTML = textCss;
         document.getElementById('save_the_date_text').innerHTML = textSpans;
         document.getElementById('banner1_button').onclick = function() {
@@ -279,7 +318,9 @@
             document.getElementById('image5').setAttribute('style', 'display:none')
             document.getElementById('image6').setAttribute('style', 'display:none')
             document.getElementById('save_the_date_text').style.animation = 'spin 2s ease-out'
+            audio.play()
         }
+
     </script>
 </body>
 
