@@ -215,14 +215,14 @@
             </div>
         </div>
     </div>
-    <audio id="myAudio" src="to_be_continued.mp3" style="display: none;"></audio>
+    <audio id="myAudio" src="to_be_continued.m4a" style="display: none;"></audio>
 
     <div id="banner3" class="banner source-code-pro" >
             <h1 >Дисклеймер</h1>
             <div>
                 <p>У нас будет нестандартная свадьба с минимумом традиций и максимумом геймификации.</p>
             </div>
-            <div><button class="play_button" style="position: static;" ></button></div>
+            <div></div>
             <div></div>
             <button id="banner3_button" class="accept_button" >ПОНЯТНО</button>
     </div>
@@ -319,13 +319,13 @@
             document.getElementById('banner2').setAttribute('style', 'display:none')
             document.getElementById('image3').setAttribute('style', 'display:none')
             document.getElementById('image4').setAttribute('style', 'display:none')
-            audio.play()
         }
         document.getElementById('banner3_button').onclick = function() {
             document.getElementById('banner3').setAttribute('style', 'display:none')
             document.getElementById('image5').setAttribute('style', 'display:none')
             document.getElementById('image6').setAttribute('style', 'display:none')
             document.getElementById('save_the_date_text').style.animation = 'spin 2s ease-out'
+            audio.play()
         }
 
     </script>
